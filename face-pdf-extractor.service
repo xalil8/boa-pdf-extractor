@@ -1,0 +1,25 @@
+[Unit]
+Description=Face PDF Extractor API
+After=network.target
+
+[Service]
+Type=simple
+User=spactureai
+
+
+WorkingDirectory=/home/spactureai/xalil/can_abi_pdf_api
+
+
+Environment="PATH=/home/spactureai/xalil/model_training/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin"
+
+
+ExecStart=/home/spactureai/xalil/model_training/bin/python can_abi_servis.py
+
+Restart=always
+
+
+StandardOutput=append:/home/spactureai/xalil/can_abi_pdf_api/output.log
+StandardError=append:/home/spactureai/xalil/can_abi_pdf_api/output.log
+
+[Install]
+WantedBy=multi-user.target
